@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -19,10 +19,10 @@ module.exports = {
         }]
     },
     plugins: [
-        new CopyWebpackPlugin([{
-            context: './public',
-            from: '*.*'
-        }])
+        new CopyPlugin([{
+                context: './public',
+                from: '*.*'
+        }]),
     ],
     devServer: {
         contentBase: './public',

@@ -12,9 +12,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import TextField from '@material-ui/core/TextField';
-import { Delete } from '@material-ui/icons';
-
-const styles = theme => ({ // ?
+const styles = theme => ({
     fab: {
         position: 'fixed',
         bottom: '20px',
@@ -77,7 +75,11 @@ class Words extends React.Component{
     //     return nextState.words != this.state.words; // component update when state data(words) change 
     // }
 
-    handleDialogToggle = () => this.setState({ dialog: !this.state.dialog });
+    handleDialogToggle = () => this.setState({
+        dialog: !this.state.dialog,
+        word: '',
+        weight: ''
+    });
 
     handleValueChange = (e) => { // 화면에 입력한 내용을 출력
         let nextState = {};
