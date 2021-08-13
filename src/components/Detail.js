@@ -6,7 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Fab from '@material-ui/core/Fab';
 import UpdateIcon from '@material-ui/icons/Update';
 import Dialog from '@material-ui/core/Dialog';
-import DialogAction from '@material-ui/core/DialogActions';
+import DialogActions from '@material-ui/core/DialogActions';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -63,8 +63,9 @@ class Detail extends React.Component{
             }
             return res.json();
         }).then(data => {
+            console.log(data['result']);
             if (data['result'] == true) {
-                this.setState({imageUrl: apiURL+"/outputs?textID="+ this.props.match.params.textID})
+                this.setState({imageUrl: apiURL+"/outputs?textID="+this.props.match.params.textID})
             } else {
                 this.setState({ imageUrl: 'NONE' })
             }
@@ -127,6 +128,7 @@ class Detail extends React.Component{
 
     render() {
         const { classes } = this.props;
+        { console.log(this.state.imageUrl) };
         return (
             <div>
                 <Card>
@@ -151,12 +153,12 @@ class Detail extends React.Component{
                         <TextField label="최대 단어 개수" type="number" name="maxCount" value={this.state.maxCount} onChange={this.handleValueChange}/><br/>
                         <TextField label="최소 단어 길이" type="number" name="minLength" value={this.state.minLength} onChange={this.handleValueChange}/><br/>
                     </DialogContent>
-                    <DialogAction>
+                    <DialogActions>
                         <Button variant="contained" color="primary" onClick={this.handleSubmit}>
                             {(this.state.imageUrl == 'NONE') ? '만들기' : '다시 만들기'}
                         </Button>
                         <Button variant="outlined" color="primary" onClick={this.handleDialogToggle}>닫기</Button>
-                    </DialogAction>
+                    </DialogActions>
                 </Dialog>
             </div>
         );
