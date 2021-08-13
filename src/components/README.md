@@ -3,6 +3,10 @@
 Text의 API를 가져와 수정
 (text에 접근하기위해 textID를 활용하여 경로 수정)
 
+즉, Word Cloud API를 웹에서 접근할 수 있도록 해준다
+
+word Cloud API에서 만들어진 ouput 이미지 파일에 쉽게 접근할 수 있도록 처리해야한다 (파이참과 리액트에서)
+
 ## 주의사항
 
 - 크롬 브라우저는 이미지의 크기가 커지면 캐싱작업을 하는 특징이 있다.
@@ -15,3 +19,5 @@ Text의 API를 가져와 수정
 여전히 새로고침 or 텍스트에서 보기 버튼 눌러도 기존의 이미지 로드 x
 
 \_getImage() API에서 데이타의 'result'는 무조건 false만 return한다. -> true를 return해야 해결가능
+
+파이참의 이미지 존재 여부 함수와 관련 (validate)
